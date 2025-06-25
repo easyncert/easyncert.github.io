@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Plant Kingdom - Class 11 Biology</title>
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
+        /* --- Global Styles & Variables --- */
+        :root {
+            --primary-color: #2e7d32; /* Deep Green */
+            --secondary-color: #66bb6a; /* Medium Green */
+            --accent-color: #ffb300; /* Amber */
+            --text-color: #37474f; /* Blue Grey */
+            --bg-color: #f5f5f5; /* Light Grey BG */
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.8;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* --- Container and Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 20px 30px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            color: #1b5e20; /* Darker Green */
+            border-bottom: 4px solid var(--secondary-color);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-top: 50px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #a5d6a7;
+        }
+
+        h3 {
+            font-size: 1.7em;
+            color: #43a047; /* Bright Green */
+            margin-top: 35px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        
+        p {
+            font-size: 1.1em;
+            margin-bottom: 16px;
+        }
+
+        strong {
+            color: #d84315; /* Deep Orange */
+            font-weight: 700;
+        }
+
+        i, .scientific-name {
+            font-style: italic;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* --- Card Layout for Plant Groups --- */
+        .plant-group-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .plant-card {
+            background-color: #f1f8e9; /* Very Light Green */
+            border-radius: 10px;
+            padding: 25px;
+            flex: 1 1 300px; /* Responsive cards */
+            border: 1px solid #dcedc8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(46, 125, 50, 0.15);
+        }
+
+        .plant-card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 1.5em;
+        }
+        
+        .plant-card ul {
+            padding-left: 20px;
+        }
+        
+        .plant-card li {
+            margin-bottom: 8px;
+        }
+
+        /* --- Image Styling --- */
+        figure {
+            margin: 30px auto;
+            text-align: center;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid #e0e0e0;
+            max-width: 80%;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        figcaption {
+            margin-top: 15px;
+            font-style: italic;
+            color: #616161;
+            font-size: 0.9em;
+        }
+
+        /* --- Table Styling --- */
+        .styled-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            font-size: 1em;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .styled-table thead tr {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .styled-table th, .styled-table td {
+            padding: 15px 18px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* --- Alternation of Generations Section --- */
+        .life-cycle-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .life-cycle-card {
+            background-color: #fffde7;
+            border-left: 5px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 8px;
+            flex: 1 1 300px;
+        }
+        .life-cycle-card h4 {
+            color: #f57f17;
+            margin-top: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            figure { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Plant Kingdom</h1>
+        <p style="text-align: center; color: #616161; font-size: 1.2em;">An Evolutionary Journey from Algae to Angiosperms</p>
+
+        <!-- Section 1: Classification Systems -->
+        <h2>1. Systems of Classification</h2>
+        <p>Plant classification has evolved from simple artificial systems to complex phylogenetic ones.</p>
+        <div class="plant-group-container">
+            <div class="plant-card" style="background-color: #e3f2fd;">
+                <h4>Artificial System</h4>
+                <p>Based on a few superficial morphological characters. Linnaeus's system is a prime example. It was simple but lacked evolutionary context.</p>
+            </div>
+            <div class="plant-card" style="background-color: #e8f5e9;">
+                <h4>Natural System</h4>
+                <p>Based on natural affinities, considering both external and internal features. Bentham and Hooker's system is a classic example.</p>
+            </div>
+            <div class="plant-card" style="background-color: #fce4ec;">
+                <h4>Phylogenetic System</h4>
+                <p>The modern approach, based on <strong>evolutionary relationships (phylogeny)</strong>. It uses data from fossils, cytotaxonomy, and chemotaxonomy.</p>
+            </div>
+        </div>
+
+        <!-- Section 2: Algae -->
+        <h2>2. Algae (Thallophytes)</h2>
+        <p>Algae are simple, chlorophyll-bearing, <strong>thalloid</strong> (undifferentiated body), and largely aquatic autotrophs. They show great diversity in form and size.</p>
+        <h3>Classes of Algae</h3>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Chlorophyceae (Green Algae)</th>
+                    <th>Phaeophyceae (Brown Algae)</th>
+                    <th>Rhodophyceae (Red Algae)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Major Pigments</strong></td>
+                    <td>Chlorophyll <i>a, b</i></td>
+                    <td>Chlorophyll <i>a, c</i>, Fucoxanthin</td>
+                    <td>Chlorophyll <i>a, d</i>, r-Phycoerythrin</td>
+                </tr>
+                <tr>
+                    <td><strong>Stored Food</strong></td>
+                    <td>Starch</td>
+                    <td>Mannitol, Laminarin</td>
+                    <td>Floridean Starch</td>
+                </tr>
+                <tr>
+                    <td><strong>Cell Wall</strong></td>
+                    <td>Cellulose</td>
+                    <td>Cellulose & Algin</td>
+                    <td>Cellulose, Pectin</td>
+                </tr>
+                <tr>
+                    <td><strong>Examples</strong></td>
+                    <td><i class="scientific-name">Chlamydomonas, Spirogyra</i></td>
+                    <td><i class="scientific-name">Laminaria, Sargassum</i></td>
+                    <td><i class="scientific-name">Porphyra, Gelidium</i></td>
+                </tr>
+            </tbody>
+        </table>
+        <figure>
+            <img src="https://i.imgur.com/k2H5y3k.png" alt="Different types of algae: Volvox, Ulothrix, Laminaria, Fucus, Porphyra, Polysiphonia">
+            <figcaption>Diversity in Algae: (a) Green Algae (Volvox, Ulothrix), (b) Brown Algae (Laminaria, Fucus), (c) Red Algae (Porphyra, Polysiphonia).</figcaption>
+        </figure>
+
+        <!-- Section 3: Bryophytes -->
+        <h2>3. Bryophytes (Amphibians of the Plant Kingdom)</h2>
+        <p>Bryophytes (mosses and liverworts) are called <strong>amphibians of the plant kingdom</strong> as they require water for sexual reproduction. Their main plant body is a haploid <strong>gametophyte</strong>, and the diploid sporophyte is dependent on it.</p>
+        <div class="plant-group-container">
+            <div class="plant-card">
+                <h4>Liverworts</h4>
+                <p>Have a thalloid body (<i class="scientific-name">Marchantia</i>). Asexual reproduction can occur via <strong>gemmae</strong> in gemma cups.</p>
+            </div>
+            <div class="plant-card">
+                <h4>Mosses</h4>
+                <p>Have a two-stage gametophyte: a creeping <strong>protonema</strong> and an upright <strong>leafy stage</strong>. Example: <i class="scientific-name">Funaria, Sphagnum</i>.</p>
+            </div>
+        </div>
+
+        <!-- Section 4: Pteridophytes -->
+        <h2>4. Pteridophytes (First Terrestrial Vascular Plants)</h2>
+        <p>Pteridophytes (ferns and horsetails) are the first terrestrial plants with <strong>vascular tissues (xylem and phloem)</strong>. Here, the main plant body is the diploid <strong>sporophyte</strong>, which is differentiated into true root, stem, and leaves.</p>
+        <p>A significant evolutionary step seen in <i class="scientific-name">Selaginella</i> and <i class="scientific-name">Salvinia</i> is <strong>heterospory</strong> (producing two types of spores), which is a precursor to the <strong>seed habit</strong>.</p>
+        <figure>
+            <img src="https://i.imgur.com/N8X5uC0.png" alt="Examples of Pteridophytes: Selaginella, Equisetum, Fern, Salvinia">
+            <figcaption>Diversity in Pteridophytes, showing varied forms and leaf structures.</figcaption>
+        </figure>
+
+        <!-- Section 5: Gymnosperms -->
+        <h2>5. Gymnosperms (Naked Seed Plants)</h2>
+        <p>Gymnosperms have ovules that are not enclosed within an ovary wall. Their seeds are "naked." The main plant body is a sporophyte. They are heterosporous, producing spores in compact structures called <strong>strobili or cones</strong>.</p>
+        <p>Examples include <i class="scientific-name">Pinus</i>, <i class="scientific-name">Cycas</i>, and the giant redwood tree <i class="scientific-name">Sequoia</i>.</p>
+        
+        <!-- Section 6: Angiosperms -->
+        <h2>6. Angiosperms (Flowering Plants)</h2>
+        <p>The most advanced and diverse plants. They bear flowers, and their seeds are enclosed within a <strong>fruit</strong>. They exhibit a unique phenomenon called <strong>double fertilization</strong>.</p>
+        <h3>Double Fertilization</h3>
+        <p>One male gamete fuses with the egg cell (<strong>Syngamy</strong>) to form the zygote (2n). The other male gamete fuses with the two polar nuclei (<strong>Triple Fusion</strong>) to form the primary endosperm nucleus (3n), which develops into the nutritive endosperm.</p>
+        <figure>
+            <img src="https://i.imgur.com/8Q9j7wN.png" alt="Diagram showing Double Fertilization in an Angiosperm">
+            <figcaption>The process of double fertilization is a hallmark of Angiosperms.</figcaption>
+        </figure>
+        
+        <!-- Section 7: Alternation of Generations -->
+        <h2>7. Plant Life Cycles and Alternation of Generations</h2>
+        <p>Plant life cycles involve an alternation between a haploid <strong>gametophyte</strong> (n) and a diploid <strong>sporophyte</strong> (2n). There are three main patterns.</p>
+        <div class="life-cycle-container">
+            <div class="life-cycle-card">
+                <h4>Haplontic Life Cycle</h4>
+                <p>The dominant phase is the gametophyte (n). The sporophyte is represented only by the zygote (2n). Common in most algae like <i class="scientific-name">Volvox</i> and <i class="scientific-name">Spirogyra</i>.</p>
+            </div>
+            <div class="life-cycle-card">
+                <h4>Diplontic Life Cycle</h4>
+                <p>The dominant phase is the sporophyte (2n). The gametophyte is highly reduced. Found in all seed plants (Gymnosperms and Angiosperms).</p>
+            </div>
+            <div class="life-cycle-card">
+                <h4>Haplo-diplontic Life Cycle</h4>
+                <p>Both gametophyte and sporophyte phases are multicellular. In <strong>Bryophytes</strong>, the gametophyte is dominant. In <strong>Pteridophytes</strong>, the sporophyte is dominant.</p>
+            </div>
+        </div>
+        <figure>
+            <img src="https://i.imgur.com/S1r5F0z.png" alt="Diagram showing the three types of plant life cycles: Haplontic, Diplontic, and Haplo-diplontic">
+            <figcaption>Evolutionary trend from a dominant gametophyte to a dominant sporophyte is visible across different plant groups.</figcaption>
+        </figure>
+    </div>
+
+</body>
+</html>
